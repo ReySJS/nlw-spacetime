@@ -1,6 +1,6 @@
-import Image from "next/image";
+import Image from 'next/image'
 
-import { getUser } from "@/lib/auth";
+import { getUser } from '@/lib/auth'
 
 /**
  * Description: Profile
@@ -8,7 +8,7 @@ import { getUser } from "@/lib/auth";
  */
 
 export function Profile() {
-  const { name, avatarUrl } = getUser();
+  const { name, avatarUrl } = getUser()
 
   return (
     <div className="flex items-center gap-3 text-left">
@@ -22,10 +22,13 @@ export function Profile() {
 
       <p className="max-w-[150px] text-base leading-snug">
         {name}
-        <a href="" className="block text-xs text-red-400 hover:text-red-500">
+        <a
+          href="/api/auth/logout"
+          className="block text-xs text-red-400 hover:text-red-500"
+        >
           Logout
         </a>
       </p>
     </div>
-  );
+  )
 }

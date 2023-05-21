@@ -1,4 +1,5 @@
-import Image from "next/image";
+import Image from 'next/image'
+import Link from 'next/link'
 
 import nlwLogo from '../assets/images/nlw-spacetime-logo.svg'
 
@@ -17,17 +18,17 @@ export function Hero() {
           Your time capsule
         </h1>
         <p className="text-lg leading-relaxed">
-          Collect memorable moments from your journey and share (if you
-          like) with the world!
+          Collect memorable moments from your journey and share (if you like)
+          with the world!
         </p>
       </div>
 
-      <a
+      <Link
         className="inline-block rounded-full bg-green-500 px-5 py-3 font-alt text-sm uppercase leading-none text-black hover:bg-green-600"
-        href=""
+        href="/memories/new"
       >
         Register memory
-      </a>
+      </Link>
     </div>
   )
 }

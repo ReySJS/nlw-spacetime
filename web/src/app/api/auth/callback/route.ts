@@ -1,21 +1,23 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from 'next/server'
 
-import { api } from "@/lib/api";
+import { api } from '@/lib/api'
 
 export async function GET(request: NextRequest) {
-  const { searchParams } = new URL(request.url);
+  const { searchParams } = new URL(request.url)
 
-  const code = searchParams.get('code');
+  const code = searchParams.get('code')
 
-  const registerResponse = await api.post('/auth/register', { code });
+  const redirectTo = request.cookies.get('redirectTo')?.value
 
-  const { token } = registerResponse.data;
+  const registerResponse = await api.post('/auth/register', { code })
 
-  const redirectURL = new URL('/', request.url)
+  const { token } = registerResponse.data
+
+  const redirectURL = redirectTo ?? new URL('/', request.url)
 
   return NextResponse.redirect(redirectURL, {
     headers: {
-      'Set-Cookie': `token=${token}; Path=/; max-age=604800`
-    }
+      'Set-Cookie': `token=${token}; Path=/; max-age=604800`,
+    },
   })
 }
