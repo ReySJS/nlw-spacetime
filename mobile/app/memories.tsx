@@ -6,7 +6,7 @@ import Icon from '@expo/vector-icons/Feather'
 import * as SecureStore from 'expo-secure-store'
 import dayjs from 'dayjs'
 
-import { api } from '../../src/libs/api'
+import { api } from '../src/libs/api'
 
 import NLWLogo from '../src/assets/nlw-spacetime-logo.svg'
 
