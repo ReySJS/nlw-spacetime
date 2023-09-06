@@ -7,7 +7,6 @@ interface User {
   avatarUrl: string
 }
 
-
 export function getUser(): User {
   const token = cookies().get('token')?.value
 
